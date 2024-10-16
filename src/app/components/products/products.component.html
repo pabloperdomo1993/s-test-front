@@ -1,1 +1,12 @@
-<p>products works!</p>
+<section class="container">
+    <h2 class="title">Products</h2>
+
+    <div class="cards">
+        <mat-card *ngFor="let product of products" class="card" >
+            <h3>{{product.name}}</h3>
+
+            <button color="primary" mat-button mat-raised-button (click)="buyProduct(product.id)">Buy</button>
+        </mat-card>
+    </div>
+</section>
+

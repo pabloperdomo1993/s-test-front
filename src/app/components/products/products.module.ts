@@ -1,20 +1,17 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductsComponent } from './products.component';
-import { RouterModule, Routes } from '@angular/router';
-
-const routes: Routes = [
-  {
-      path: '',
-      component: ProductsComponent
-  }
-];
+import { MatCardModule } from '@angular/material/card';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
-  declarations: [],
+  declarations: [ProductsComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
-  ]
+    ReactiveFormsModule,
+    MatCardModule,
+    MatButtonModule
+  ],
 })
 export class ProductsModule { }

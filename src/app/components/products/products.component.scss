@@ -1,0 +1,18 @@
+.container {
+    .title {
+        text-align: center;
+        color: blue;
+    }
+
+    .cards {
+        margin-left: 20px;
+        margin-right: 20px;
+
+        .card {
+            width: 200px;
+            height: 300px;
+            background-color: white;
+            padding: 20px;
+        }
+    }
+}
