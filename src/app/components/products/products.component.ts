@@ -13,11 +13,17 @@ export class ProductsComponent implements OnInit {
    */
   products: any[];
 
+  /**
+   * Url of image.
+   */
+  public urlImage: string;
+
   constructor(
     private productService: ProductService,
     private router: Router
   ) {
     this.products = [];
+    this.urlImage = 'https://supra.la/wp-content/uploads/2020/02/logo-supra-pagos-intenacionales-blanco.svg';
   }
 
   /**

@@ -1,13 +1,17 @@
 <section class="container">
+    <img [src]="urlImage" alt="">
+    
     <h2 class="title">Products</h2>
 
     <div class="cards">
         <mat-card *ngFor="let product of products" class="card" >
+            <img [src]="product.url" alt="">
             <h3>Product: {{product.name}}</h3>
             <p>ID: {{product.id}}</p>
             <p>Price: {{product.price}}</p>
+            <p>In stock: {{product.stock}}</p>
 
-            <button color="primary" mat-button mat-raised-button (click)="buyProduct(product.id)">Buy</button>
+            <button class="btn" color="primary" mat-button mat-raised-button (click)="buyProduct(product.id)">Buy</button>
         </mat-card>
     </div>
 </section>

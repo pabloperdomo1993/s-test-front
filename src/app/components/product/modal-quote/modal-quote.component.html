@@ -1,12 +1,27 @@
-<h2 mat-dialog-title>Delete file</h2>
+<h2 mat-dialog-title>Quote</h2>
 <mat-dialog-content>
-  <p>Moneda cotizada {{data.initialCurrency}}</p>
-  <p>Monto cotizado {{data.initialAmount}}</p>
-  <p>Total divisas a comprar {{data.initialAmount}}</p>
-  <p>Tasa de cambio {{data.exchangeRate}}</p>
-  <p>Monto total en pesos a debitar {{data.finalAmount}}</p>
+  <table>
+    <tbody>
+      <tr>
+        <td class="item">Moneda cotizada</td>
+        <td>{{data.initialCurrency}}</td>
+      </tr>
+      <tr>
+        <td class="item">Monto cotizado</td>
+        <td>{{data.initialAmount}}</td>
+      </tr>
+      <tr>
+        <td class="item">Total divisas a comprar</td>
+        <td>{{data.exchangeRate}}</td>
+      </tr>
+      <tr>
+        <td class="item">Monto total en pesos a debitar</td>
+        <td>{{data.finalAmount}}</td>
+      </tr>
+    </tbody>
+  </table>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button mat-dialog-close>No</button>
-  <button mat-button (click)="acceptQuote()">Ok</button>
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button color="primary" mat-raised-button (click)="acceptQuote()">Accept</button>
 </mat-dialog-actions>

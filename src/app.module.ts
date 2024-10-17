@@ -3,15 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app.routes';
 import { AppComponent } from './app.component';
 import { ProductModule } from './app/components/product/product.module';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ProductsModule } from './app/components/products/products.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptor } from './app/interceptors/token.interceptor';
 import { PaymentLinkDetailModule } from './app/components/payment-link-detail/payment-link-detail.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
 import { SignInModule } from './app/components/sign-in/sign-in.module';
+import { provideToastr, ToastrModule } from 'ngx-toastr';
 
 @NgModule({
     declarations: [
@@ -28,13 +28,15 @@ import { SignInModule } from './app/components/sign-in/sign-in.module';
         ProductModule,
         ProductsModule,
         PaymentLinkDetailModule,
-        HttpClientModule
+        HttpClientModule,
+        ToastrModule.forRoot()
     ],
     schemas: [
         CUSTOM_ELEMENTS_SCHEMA
     ],
     providers: [
-        provideAnimationsAsync(),
+        provideAnimations(),
+        provideToastr(),
         {
             provide: HTTP_INTERCEPTORS,
             useClass: TokenInterceptor,

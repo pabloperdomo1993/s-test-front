@@ -5,6 +5,7 @@ import { ExchangeService } from '../../services/exchange.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalQuoteComponent } from './modal-quote/modal-quote.component';
 import { PayinService } from '../../services/payin.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product',
@@ -17,13 +18,21 @@ export class ProductComponent implements OnInit {
    */
   product: any;
 
+  /**
+   * Url of image.
+   */
+  public urlImage: string;
+
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
     private exchangeService: ExchangeService,
     private dialog: MatDialog,
-    private payinService: PayinService
-  ) {}
+    private payinService: PayinService,
+    private toastr: ToastrService
+  ) {
+    this.urlImage = 'https://supra.la/wp-content/uploads/2020/02/logo-supra-pagos-intenacionales-blanco.svg';
+  }
 
   /**
    * Starts variables.
@@ -61,6 +70,7 @@ export class ProductComponent implements OnInit {
 
     this.exchangeService.exchangeQuote(body).subscribe({
       next: (data: any) => {
+        this.toastr.success('Exchange quote successful');
         this.openDialog(data);
       },
       error: (error) => {}
@@ -102,6 +112,8 @@ export class ProductComponent implements OnInit {
 
     this.payinService.payinPaymentCreate(body).subscribe({
       next: (data: any) => {
+        this.toastr.success('Payin payment create successful');
+
         const baseUrl = `${data.redirectUrl}/${data.id}`;
 
         window.location.replace(baseUrl);

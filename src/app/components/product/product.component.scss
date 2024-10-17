@@ -1,6 +1,15 @@
 .container {
+    background-color: #021135;
+    height: 100vh;
+
+    img {
+        height: 100px;
+        width: auto;
+    }
+
     .title {
         text-align: center;
+        color: #fff;
     }
 
     .card {
@@ -8,10 +17,16 @@
         margin-right: 20px;
 
         .card-detail {
-            width: 50%;
-            height: auto;
+            width: 300px;
+            height: 400px;
             background-color: white;
             padding: 20px;
+
+            img {
+                height: 200px;
+                width: 200px;
+                margin: auto;
+            }
         }
     }
 }

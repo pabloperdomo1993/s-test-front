@@ -13,11 +13,17 @@ export class PaymentLinkDetailComponent implements OnInit {
    */
   payment: any;
 
+  /**
+   * Url of image.
+   */
+  public urlImage: string;
+
   constructor(
     private route: ActivatedRoute,
     private payinService: PayinService
   ) { 
     this.payment = {};
+    this.urlImage = 'https://supra.la/wp-content/uploads/2020/02/logo-supra-pagos-intenacionales-blanco.svg';
   }
 
   /**

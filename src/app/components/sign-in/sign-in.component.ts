@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-sign-in',
@@ -14,15 +15,22 @@ export class SignInComponent {
    */
   public form: FormGroup;
 
+  /**
+   * Url of image.
+   */
+  public urlImage: string;
+
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ){
     this.form = this.formBuilder.group({
       email: ['', Validators.required],
       password: ['', Validators.required]
     });
+    this.urlImage = 'https://supra.la/wp-content/uploads/2020/02/logo-supra-pagos-intenacionales-blanco.svg';
   }
 
   /**
@@ -36,6 +44,8 @@ export class SignInComponent {
 
     this.authService.authLoginClient(body).subscribe({
       next: (data: any) => {
+        this.toastr.success('Verification successful');
+
         localStorage.setItem('accessToken', JSON.stringify(data.token));
         this.router.navigate([``]);
       },

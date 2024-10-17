@@ -1,12 +1,25 @@
 .container {
+    background-color: #021135;
+    height: 100vh;
+
+    img {
+        height: 100px;
+        width: auto;
+    }
+
     h1 {
         text-align: center;
+        color: #fff;
     }
 
     .card {
+        width: 100%;
+        
         .card-detail {
+            margin: auto;
+            width: 400px;
+            height: 400px;
             padding: 20px;
-            width: 50%;
             background-color: white;
         }
     }

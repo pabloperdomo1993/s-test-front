@@ -1,8 +1,11 @@
 <section class="container">
+    <img [src]="urlImage" alt="">
+    
     <h2 class="title">Product detail</h2>
 
     <div class="card">
         <mat-card class="card-detail">
+            <img [src]="product.url" alt="">
             <h3>Product: {{product.name}}</h3>
             <p>ID: {{product.id}}</p>
             <p>Price: {{product.price}}</p>

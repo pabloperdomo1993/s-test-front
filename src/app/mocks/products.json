@@ -3,6 +3,28 @@
         "id": 1,
         "name": "PS5",
         "price": 200,
-        "stock": 21
+        "stock": 21,
+        "url": "https://www.phonelectrics.com/cdn/shop/files/PlayStation5Slim-1_1000x1000.jpg?v=1715994054"
+    },
+    {
+        "id": 2,
+        "name": "PC Gamer",
+        "price": 100,
+        "stock": 21,
+        "url": "https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/falabellaCO/127344182_01/w=800,h=800,fit=pad"
+    },
+    {
+        "id": 3,
+        "name": "XBOX",
+        "price": 220,
+        "stock": 21,
+        "url": "https://http2.mlstatic.com/D_NQ_NP_942133-MLA74651936102_022024-O.webp"
+    },
+    {
+        "id": 4,
+        "name": "Wi",
+        "price": 500,
+        "stock": 21,
+        "url": "https://cloudfront-us-east-1.images.arcpublishing.com/elespectador/ZI2WDY6XIBFHBMIA47PCJIABFE.jpg"
     }
 ]
