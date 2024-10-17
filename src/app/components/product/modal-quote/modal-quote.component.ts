@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-modal-quote',
@@ -7,10 +8,15 @@ import { Component } from '@angular/core';
 })
 export class ModalQuoteComponent {
   
+  constructor(
+    public dialogRef: MatDialogRef<ModalQuoteComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ){}
+  
   /**
    * Accept quote
   */
   public acceptQuote(): void {
-    
+    this.dialogRef.close(true);
   }
 }

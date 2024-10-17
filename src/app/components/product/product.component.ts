@@ -5,6 +5,7 @@ import { ExchangeService } from '../../services/exchange.service';
 import { AuthService } from '../../services/auth.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalQuoteComponent } from './modal-quote/modal-quote.component';
+import { PayinService } from '../../services/payin.service';
 
 @Component({
   selector: 'app-product',
@@ -22,7 +23,8 @@ export class ProductComponent implements OnInit {
     private productService: ProductService,
     private exchangeService: ExchangeService,
     private authService: AuthService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private payinService: PayinService
   ) {}
 
   /**
@@ -97,5 +99,24 @@ export class ProductComponent implements OnInit {
     const dialogRef = this.dialog.open(ModalQuoteComponent, {
       data: {}
     });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log('-----acepto')
+      }
+    });
+  }
+
+  /**
+   * Create Payin payment.
+   */
+  private createPayinPayment(): void {
+    const body = {
+
+    };
+
+    this.payinService.payinPaymentCreate(body).subscribe({
+
+    })
   }
 }
