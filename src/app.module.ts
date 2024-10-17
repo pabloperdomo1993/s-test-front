@@ -10,6 +10,8 @@ import { ProductsModule } from './app/components/products/products.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptor } from './app/interceptors/token.interceptor';
 import { PaymentLinkDetailModule } from './app/components/payment-link-detail/payment-link-detail.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SignInModule } from './app/components/sign-in/sign-in.module';
 
 @NgModule({
     declarations: [
@@ -20,7 +22,9 @@ import { PaymentLinkDetailModule } from './app/components/payment-link-detail/pa
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
+        BrowserAnimationsModule,
         AppRoutingModule,
+        SignInModule,
         ProductModule,
         ProductsModule,
         PaymentLinkDetailModule,

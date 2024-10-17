@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProductsComponent } from './app/components/products/products.component';
 import { ProductComponent } from './app/components/product/product.component';
 import { PaymentLinkDetailComponent } from './app/components/payment-link-detail/payment-link-detail.component';
+import { SignInComponent } from './app/components/sign-in/sign-in.component';
 
 export const routes: Routes = [
     {
@@ -16,6 +17,10 @@ export const routes: Routes = [
     {
         path: 'payment-link-detail/:id',
         component: PaymentLinkDetailComponent
+    },
+    {
+        path: 'sign-in',
+        component: SignInComponent
     }
 ];
 

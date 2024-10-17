@@ -16,4 +16,11 @@ export class AuthService {
   public authClient(body: any): Observable<string> {
     return this.httpClient.post<any>(`${ env.api }/auth`, body);
   }
+
+  /**
+   * Login client.
+   */
+  public authLoginClient(body: any): Observable<string> {
+    return this.httpClient.post<any>(`${ env.api }/auth/login`, body);
+  }
 }
