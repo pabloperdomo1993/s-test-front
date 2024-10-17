@@ -3,7 +3,9 @@
 
     <div class="cards">
         <mat-card *ngFor="let product of products" class="card" >
-            <h3>{{product.name}}</h3>
+            <h3>Product: {{product.name}}</h3>
+            <p>ID: {{product.id}}</p>
+            <p>Price: {{product.price}}</p>
 
             <button color="primary" mat-button mat-raised-button (click)="buyProduct(product.id)">Buy</button>
         </mat-card>

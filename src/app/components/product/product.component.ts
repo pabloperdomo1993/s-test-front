@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../services/product.service';
+import { ExchangeService } from '../../services/exchange.service';
+import { AuthService } from '../../services/auth.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalQuoteComponent } from './modal-quote/modal-quote.component';
 
 @Component({
   selector: 'app-product',
@@ -15,7 +19,10 @@ export class ProductComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private productService: ProductService
+    private productService: ProductService,
+    private exchangeService: ExchangeService,
+    private authService: AuthService,
+    private dialog: MatDialog
   ) {}
 
   /**
@@ -40,5 +47,55 @@ export class ProductComponent implements OnInit {
         error: (error: any) => {}
       })
     })
+  }
+
+  /**
+   * Buy product.
+   */
+  public buyProduct(): void {
+    const credentials = {
+      clientId: "c859cd16-9dee-4c7b-a230-bf2c6f055cd3",
+      clientSecret: "ClientSecret"
+    };
+
+    this.authService.authClient(credentials).subscribe({
+      next: (data: any) => {
+        localStorage.setItem('accessToken', JSON.stringify(data.token));
+        this.buyAction();
+      },
+      error: (error) => {
+        console.log('-----eee', error)
+      }
+    })
+  }
+
+  /**
+   * Buy product.
+   */
+  private buyAction(): void {
+    const body = {
+      "initialCurrency": "COP",
+      "finalCurrency": "USD",
+      "initialAmount": 40000000
+    };
+
+    this.exchangeService.exchangeQuote(body).subscribe({
+      next: (data: any) => {
+        console.log('-----', data)
+        this.openDialog();
+      },
+      error: (error) => {
+        console.log('-----eee', error)
+      }
+    })
+  }
+
+  /**
+   * Open dialog.
+   */
+  private openDialog(): void {
+    const dialogRef = this.dialog.open(ModalQuoteComponent, {
+      data: {}
+    });
   }
 }

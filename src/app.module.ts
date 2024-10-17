@@ -7,6 +7,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ProductsModule } from './app/components/products/products.module';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { TokenInterceptor } from './app/interceptors/token.interceptor';
 
 @NgModule({
     declarations: [
@@ -19,13 +21,19 @@ import { ProductsModule } from './app/components/products/products.module';
         ReactiveFormsModule,
         AppRoutingModule,
         ProductModule,
-        ProductsModule
+        ProductsModule,
+        HttpClientModule
     ],
     schemas: [
         CUSTOM_ELEMENTS_SCHEMA
     ],
     providers: [
-        provideAnimationsAsync()
+        provideAnimationsAsync(),
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: TokenInterceptor,
+            multi: true,
+        },
     ],
     bootstrap: [AppComponent]
 })

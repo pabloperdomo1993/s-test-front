@@ -4,6 +4,7 @@ import { ProductComponent } from './product.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { ModalQuoteModule } from './modal-quote/modal-quote.module';
 
 @NgModule({
   declarations: [ProductComponent],
@@ -12,7 +13,8 @@ import { MatButtonModule } from '@angular/material/button';
     CommonModule,
     ReactiveFormsModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    ModalQuoteModule
   ]
 })
 export class ProductModule { }

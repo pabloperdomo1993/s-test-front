@@ -2,6 +2,7 @@
     {
         "id": 1,
         "name": "PS5",
-        "price": 200
+        "price": 200,
+        "stock": 21
     }
 ]
