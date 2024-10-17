@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProductComponent } from './product.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { ModalQuoteModule } from './modal-quote/modal-quote.module';
+import { ModalQuoteModule } from '../product/modal-quote/modal-quote.module';
+import { PaymentLinkDetailComponent } from './payment-link-detail.component';
 
 @NgModule({
-  declarations: [ProductComponent],
+  declarations: [PaymentLinkDetailComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -16,4 +16,4 @@ import { ModalQuoteModule } from './modal-quote/modal-quote.module';
     ModalQuoteModule
   ]
 })
-export class ProductModule { }
+export class PaymentLinkDetailModule { }

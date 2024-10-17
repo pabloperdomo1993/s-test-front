@@ -16,4 +16,11 @@ export class PayinService {
   public payinPaymentCreate(body: any): Observable<string> {
     return this.httpClient.post<any>(`${ env.api }/payin/payment`, body);
   }
+
+  /**
+   * Payin payment by id.
+   */
+  public payinPaymentGetById(id: string): Observable<string> {
+    return this.httpClient.get<any>(`${ env.api }/payin/payment/${id}`);
+  }
 }

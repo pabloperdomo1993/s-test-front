@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 import { ProductsModule } from './app/components/products/products.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptor } from './app/interceptors/token.interceptor';
+import { PaymentLinkDetailModule } from './app/components/payment-link-detail/payment-link-detail.module';
 
 @NgModule({
     declarations: [
@@ -22,6 +23,7 @@ import { TokenInterceptor } from './app/interceptors/token.interceptor';
         AppRoutingModule,
         ProductModule,
         ProductsModule,
+        PaymentLinkDetailModule,
         HttpClientModule
     ],
     schemas: [

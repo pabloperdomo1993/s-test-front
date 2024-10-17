@@ -1,6 +1,10 @@
 <h2 mat-dialog-title>Delete file</h2>
 <mat-dialog-content>
-  Would you like to accept the quote?
+  <p>Moneda cotizada {{data.initialCurrency}}</p>
+  <p>Monto cotizado {{data.initialAmount}}</p>
+  <p>Total divisas a comprar {{data.initialAmount}}</p>
+  <p>Tasa de cambio {{data.exchangeRate}}</p>
+  <p>Monto total en pesos a debitar {{data.finalAmount}}</p>
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-button mat-dialog-close>No</button>
